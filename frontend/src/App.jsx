@@ -13,7 +13,7 @@ import axios from "axios";
 function App() {
   const [pods, setPods] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedAnalysis, setSelectedAnalysis] = useState("null");
+  const [selectedAnalysis, setSelectedAnalysis] = useState(null);
   const [metricsData, setMetricsData] = useState([
     { time: "1", cpu: 20, memory: 30 },
     { time: "2", cpu: 35, memory: 40 },
@@ -112,13 +112,16 @@ if (
 }
 
 setSelectedAnalysis({
-  text: analysisText,
+  analysis: analysisText,
   severity: severity,
 });
     } catch (error) {
       console.error(error);
 
-      setSelectedAnalysis("Failed to analyze pod.");
+      setSelectedAnalysis({
+        analysis: "Failed to analyze pod.",
+        severity: "LOW",
+      });
     }
   };
 
@@ -388,8 +391,8 @@ const healthPercentage =
 
     </div>
 
-    <pre className="whitespace-pre-wrap text-sm">
-      {selectedAnalysis.text}
+    <pre className="whitespace-pre-wrap text-sm text-white">
+      {selectedAnalysis.analysis}
     </pre>
 
   </div>

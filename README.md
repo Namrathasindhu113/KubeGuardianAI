@@ -226,6 +226,25 @@ Add:
 ```env
 GROQ_API_KEY=your_api_key
 ```
+# Screenshots
+
+## Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+## AI Incident Analysis
+
+![AI Analysis](screenshots/ai-analysis.png)
+
+---
+
+## Failed Pod Detection
+
+![Failed Pod](screenshots/failed-pod.png)
+
+---
 
 ---
 
