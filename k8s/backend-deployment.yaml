@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: kubeguardian-backend
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: kubeguardian-backend
+
+  template:
+    metadata:
+      labels:
+        app: kubeguardian-backend
+
+    spec:
+      containers:
+        - name: backend
+          image: kubeguardian-backend
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 8000

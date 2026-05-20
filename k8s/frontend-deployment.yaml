@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: kubeguardian-frontend
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: kubeguardian-frontend
+
+  template:
+    metadata:
+      labels:
+        app: kubeguardian-frontend
+
+    spec:
+      containers:
+        - name: frontend
+          image: kubeguardian-frontend
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 5173
